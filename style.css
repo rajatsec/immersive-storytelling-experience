@@ -1,0 +1,237 @@
+/* ===============================
+   RESET
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #000;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* ===============================
+   BACKGROUND CANVAS
+================================= */
+
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* ===============================
+   LAYOUT SYSTEM
+================================= */
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.section {
+    padding: 100px 0;
+}
+
+.center {
+    text-align: center;
+}
+
+/* ===============================
+   HERO
+================================= */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    background: radial-gradient(circle at center, rgba(80,0,120,0.6), #000);
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    margin-bottom: 25px;
+    opacity: 0.8;
+}
+
+/* ===============================
+   BUTTON SYSTEM
+================================= */
+
+.primary-btn {
+    padding: 14px 32px;
+    font-size: 16px;
+    font-weight: 600;
+    background: gold;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.primary-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px gold;
+}
+
+/* ===============================
+   STORY SECTION
+================================= */
+
+.story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.story-image img {
+    width: 100%;
+    border-radius: 20px;
+}
+
+.story-text h2 {
+    margin-bottom: 15px;
+}
+
+.dark {
+    background: rgba(255,255,255,0.03);
+}
+
+/* ===============================
+   FEATURED IMAGE
+================================= */
+
+.featured-img {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 25px;
+    border-radius: 20px;
+}
+
+/* ===============================
+   WEDDING
+================================= */
+
+.wedding h2 {
+    margin-bottom: 25px;
+}
+
+#petals {
+    position: relative;
+    height: 200px;
+    margin-top: 40px;
+}
+
+/* ===============================
+   GALLERY
+================================= */
+
+.gallery-title {
+    margin-bottom: 40px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    border-radius: 15px;
+    transition: transform 0.4s ease;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.05);
+}
+
+/* ===============================
+   BLESSING
+================================= */
+
+.blessing-form {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+#username {
+    width: 100%;
+    max-width: 400px;
+    padding: 14px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+}
+
+.blessing-output {
+    margin-top: 25px;
+    font-size: 18px;
+    color: gold;
+}
+
+/* ===============================
+   PETAL ANIMATION
+================================= */
+
+#petals span {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: pink;
+    border-radius: 50%;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-20px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(200px);
+        opacity: 0;
+    }
+}
+
+/* ===============================
+   RESPONSIVE
+================================= */
+
+@media (max-width: 768px) {
+
+    .story-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .section {
+        padding: 70px 0;
+    }
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>The Sacred Union of Shiva & Parvati | Maha Shivratri Experience</title>
+  <meta name="description" content="An immersive Maha Shivratri storytelling experience showcasing the divine union of Shiva and Parvati." />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Background Animation -->
+  <canvas id="galaxy" aria-hidden="true"></canvas>
+
+  <!-- Background Audio -->
+  <audio id="mantra" loop preload="auto">
+    <source src="assets/audio/mantra.mp3" type="audio/mpeg">
+    Your browser does not support audio.
+  </audio>
+
+  <!-- HERO -->
+  <header class="hero" id="hero">
+    <div class="hero-content">
+      <h1>The Sacred Union of Shiva & Parvati</h1>
+      <p class="subtitle">Maha Shivratri Special Immersive Experience</p>
+      <button id="enterBtn" class="primary-btn">
+        Begin Journey
+      </button>
+    </div>
+  </header>
+
+  <!-- STORY: TAPASYA -->
+  <section class="section story" id="tapasya">
+    <div class="container">
+      <div class="story-grid">
+        <div class="story-image">
+          <img src="assets/images/tapasya.jpg" 
+               alt="Parvati performing intense meditation in the Himalayas">
+        </div>
+        <div class="story-text">
+          <h2>The Tapasya</h2>
+          <p>
+            Parvati performed intense meditation in the Himalayas,
+            seeking Shiva’s divine acceptance through unwavering devotion.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY: SHIVA APPEARS -->
+  <section class="section story dark" id="shiva">
+    <div class="container center">
+      <img src="assets/images/kailash.jpg" 
+           alt="Shiva appearing from Mount Kailash in divine form"
+           class="featured-img">
+
+      <h2>Shiva Appears</h2>
+      <p>
+        Moved by her devotion, Shiva revealed himself from Mount Kailash,
+        blessing her with divine grace.
+      </p>
+    </div>
+  </section>
+
+  <!-- WEDDING -->
+  <section class="section wedding" id="wedding">
+    <div class="container center">
+      <h2>The Divine Wedding</h2>
+      <button id="witnessBtn" class="primary-btn">
+        Witness Ceremony
+      </button>
+
+      <div id="petals" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="section gallery" id="gallery">
+    <div class="container">
+      <h2 class="gallery-title">Wedding Moments</h2>
+
+      <div class="gallery-grid">
+        <img src="assets/images/wedding1.jpg" alt="Shiva and Parvati wedding moment 1">
+        <img src="assets/images/wedding2.jpg" alt="Shiva and Parvati wedding moment 2">
+        <img src="assets/images/wedding3.jpg" alt="Shiva and Parvati wedding moment 3">
+      </div>
+    </div>
+  </section>
+
+  <!-- BLESSINGS -->
+  <section class="section blessing" id="blessing">
+    <div class="container center">
+      <h2>Receive Blessings</h2>
+
+      <div class="blessing-form">
+        <input 
+          type="text" 
+          id="username" 
+          placeholder="Enter your name"
+          autocomplete="off"
+        />
+        <button id="blessingBtn" class="primary-btn">
+          Get Blessing
+        </button>
+      </div>
+
+      <p id="blessingText" class="blessing-output"></p>
+    </div>
+  </section>
+
+  <!-- JS -->
+  <script src="script.js" defer></script>
+
+</body>
+</html>	

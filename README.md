@@ -22,7 +22,7 @@ This is an immersive storytelling experience for Shivratri, built with HTML, CSS
 
 ## Preview
 ![Shivratri Project Screenshot](assets/screenshot1.png)
-
+![Shivratri Project Screenshot](assets/screenshot2.png)
 ---
 
 ## Live Preview

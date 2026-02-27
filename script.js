@@ -31,13 +31,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const enterBtn = document.getElementById("enterBtn");
     const mantra = document.getElementById("mantra");
+    const soundBtn = document.getElementById("soundBtn");
+    let isMuted = false;
+
+    // Sound Toggle
+    soundBtn.addEventListener("click", () => {
+        if (mantra.paused) {
+            mantra.play().catch(e => console.log("Audio play failed", e));
+            soundBtn.innerText = "🔊";
+            isMuted = false;
+        } else {
+            if (isMuted) {
+                mantra.muted = false;
+                soundBtn.innerText = "🔊";
+                isMuted = false;
+            } else {
+                mantra.muted = true;
+                soundBtn.innerText = "🔇";
+                isMuted = true;
+            }
+        }
+    });
 
     enterBtn.addEventListener("click", () => {
+        // Try to play audio on enter
+        mantra.volume = 0.5;
+        mantra.play().catch(err => {
+            console.log("Audio blocked, waiting for user interaction on toggle:", err);
+            soundBtn.innerText = "🔇"; // Indicate it's not playing/muted
+        });
 
-        // Play audio (required user interaction)
-        mantra.play().catch(err => console.log("Audio blocked:", err));
-
-        // Scroll to next section
         document.getElementById("tapasya").scrollIntoView({
             behavior: "smooth"
         });
@@ -60,20 +83,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const stars = [];
 
-    for (let i = 0; i < 250; i++) {
+    for (let i = 0; i < 300; i++) {
         stars.push({
             x: Math.random() * canvas.width,
             y: Math.random() * canvas.height,
             radius: Math.random() * 1.5,
-            speed: Math.random() * 0.7
+            speed: Math.random() * 0.5 + 0.1,
+            opacity: Math.random(),
+            twinkleSpeed: Math.random() * 0.02 + 0.005
         });
     }
 
     function animateStars() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.fillStyle = "white";
 
         stars.forEach(star => {
+            // Twinkle effect
+            star.opacity += star.twinkleSpeed;
+            if (star.opacity > 1 || star.opacity < 0.2) {
+                star.twinkleSpeed = -star.twinkleSpeed;
+            }
+
+            ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`;
             ctx.beginPath();
             ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
             ctx.fill();
@@ -98,39 +129,45 @@ document.addEventListener("DOMContentLoaded", () => {
     const petalsContainer = document.getElementById("petals");
 
     witnessBtn.addEventListener("click", () => {
-
         petalsContainer.innerHTML = "";
+        
+        // Disable button briefly to prevent spam
+        witnessBtn.disabled = true;
+        setTimeout(() => witnessBtn.disabled = false, 2000);
 
-        for (let i = 0; i < 50; i++) {
+        for (let i = 0; i < 40; i++) {
             const petal = document.createElement("span");
-
+            
+            // Random horizontal start position
             petal.style.left = Math.random() * 100 + "%";
-            petal.style.animationDuration = (3 + Math.random() * 3) + "s";
-            petal.style.opacity = Math.random();
+            
+            // Random fall duration
+            const duration = 2 + Math.random() * 3;
+            petal.style.animationDuration = `${duration}s`;
+            
+            // Random delay so they don't all fall at once
+            petal.style.animationDelay = `${Math.random() * 2}s`;
 
             petalsContainer.appendChild(petal);
         }
     });
 
     /* ===============================
-       BLESSING SYSTEM (Gender Based)
+       BLESSING SYSTEM (Universal)
     =============================== */
 
     const blessingBtn = document.getElementById("blessingBtn");
     const blessingText = document.getElementById("blessingText");
 
-    const maleBlessings = [
+    const blessings = [
         "May Lord Shiva grant you strength and fearless determination.",
-        "May your path be guided by divine courage and wisdom.",
-        "May you rise with discipline and conquer your challenges.",
-        "May divine power protect and elevate your journey."
-    ];
-
-    const femaleBlessings = [
         "May Goddess Parvati bless you with grace and inner strength.",
         "May your life shine with divine harmony and love.",
+        "May you rise with discipline and conquer your challenges.",
         "May sacred energy empower your dreams and spirit.",
-        "May divine blessings fill your heart with peace and confidence."
+        "May divine blessings fill your heart with peace and confidence.",
+        "May the light of consciousness guide your every step.",
+        "May you find the eternal stillness within the chaos."
     ];
 
     blessingBtn.addEventListener("click", () => {
@@ -139,26 +176,17 @@ document.addEventListener("DOMContentLoaded", () => {
         const name = nameInput.value.trim();
 
         if (!name) {
-            blessingText.innerText = "Please enter your name.";
+            blessingText.innerText = "Please enter your name to receive a blessing.";
+            blessingText.style.color = "#ff6b6b"; // Light red for error
             return;
         }
 
-        // Simple gender guess (basic heuristic)
-        const lastChar = name.slice(-1).toLowerCase();
+        const randomBlessing = blessings[Math.floor(Math.random() * blessings.length)];
 
-        let blessingArray;
+        blessingText.style.color = "gold";
+        blessingText.innerText = `"${name}, ${randomBlessing}"`;
 
-        if (["a", "i"].includes(lastChar)) {
-            blessingArray = femaleBlessings;
-        } else {
-            blessingArray = maleBlessings;
-        }
-
-        const randomBlessing =
-            blessingArray[Math.floor(Math.random() * blessingArray.length)];
-
-        blessingText.innerText = `${name}, ${randomBlessing}`;
-
+        // Optional: clear input
         nameInput.value = "";
     });
 

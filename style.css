@@ -1,6 +1,18 @@
 /* ===============================
-   RESET
+   PREMIUM CYBER-MYSTIC THEME
+   Project: Shivratri Immersive Experience
+   Developer: Rajat (@secure_with_rajat)
 ================================= */
+
+:root {
+    --primary: #ff0033;      /* Cyber Red */
+    --secondary: #ffd700;    /* Luminous Gold */
+    --bg-dark: #050505;
+    --glass: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --text-main: #f0f0f0;
+    --text-dim: #b0b0b0;
+}
 
 * {
     margin: 0;
@@ -13,225 +25,317 @@ html {
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    background: #000;
-    color: #fff;
+    font-family: 'Lato', sans-serif;
+    background: var(--bg-dark);
+    color: var(--text-main);
     overflow-x: hidden;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--secondary);
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
 }
 
 /* ===============================
-   BACKGROUND CANVAS
+   BACKGROUND & OVERLAYS
 ================================= */
 
-canvas {
+canvas#galaxy {
     position: fixed;
     top: 0;
     left: 0;
     z-index: -1;
+    filter: brightness(0.8);
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at center, transparent, var(--bg-dark) 90%);
+    pointer-events: none;
+    z-index: 0;
 }
 
 /* ===============================
-   LAYOUT SYSTEM
+   CONTROLS (Floating Glass)
+================================= */
+
+.controls {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    z-index: 100;
+}
+
+.icon-btn {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    color: var(--secondary);
+    font-size: 1.2rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.icon-btn:hover {
+    background: var(--primary);
+    color: white;
+    transform: rotate(15deg) scale(1.1);
+    border-color: var(--primary);
+    box-shadow: 0 0 20px var(--primary);
+}
+
+/* ===============================
+   LAYOUT
 ================================= */
 
 .container {
     width: 90%;
-    max-width: 1100px;
+    max-width: 1200px;
     margin: auto;
+    position: relative;
+    z-index: 1;
 }
 
 .section {
-    padding: 100px 0;
+    padding: 120px 0;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
 }
 
 .center {
     text-align: center;
+    width: 100%;
 }
 
 /* ===============================
-   HERO
+   HERO (Cinematic)
 ================================= */
 
 .hero {
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    position: relative;
+}
 
-    background: radial-gradient(circle at center, rgba(80,0,120,0.6), #000);
+.hero-content {
+    max-width: 800px;
+    padding: 40px;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+    border-radius: 30px;
+    border: 1px solid var(--glass-border);
 }
 
 .hero h1 {
-    font-size: 3rem;
-    margin-bottom: 15px;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    margin-bottom: 20px;
+    background: linear-gradient(to bottom, #fff, var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .subtitle {
-    margin-bottom: 25px;
-    opacity: 0.8;
+    font-size: 1.2rem;
+    letter-spacing: 5px;
+    color: var(--text-dim);
+    margin-bottom: 40px;
+    text-transform: uppercase;
 }
 
 /* ===============================
-   BUTTON SYSTEM
+   BUTTONS (Cyber-Glow)
 ================================= */
 
 .primary-btn {
-    padding: 14px 32px;
-    font-size: 16px;
-    font-weight: 600;
-    background: gold;
-    border: none;
-    border-radius: 40px;
+    padding: 16px 45px;
+    font-size: 14px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: transparent;
+    color: var(--secondary);
+    border: 2px solid var(--secondary);
+    border-radius: 4px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.primary-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--secondary);
+    transition: all 0.4s ease;
+    z-index: -1;
 }
 
 .primary-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 0 20px gold;
+    color: #000;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+}
+
+.primary-btn:hover::before {
+    left: 0;
 }
 
 /* ===============================
-   STORY SECTION
+   STORY GRID
 ================================= */
 
 .story-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
     align-items: center;
+}
+
+.story-image {
+    position: relative;
+}
+
+.story-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 1px solid var(--primary);
+    transform: translate(15px, 15px);
+    z-index: -1;
+    border-radius: 20px;
+    opacity: 0.5;
 }
 
 .story-image img {
     width: 100%;
     border-radius: 20px;
+    filter: grayscale(0.3) contrast(1.1);
+    transition: all 0.5s ease;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+.story-image img:hover {
+    filter: grayscale(0);
+    transform: scale(1.02);
 }
 
 .story-text h2 {
-    margin-bottom: 15px;
-}
-
-.dark {
-    background: rgba(255,255,255,0.03);
-}
-
-/* ===============================
-   FEATURED IMAGE
-================================= */
-
-.featured-img {
-    width: 100%;
-    max-width: 600px;
+    font-size: 2.5rem;
     margin-bottom: 25px;
-    border-radius: 20px;
+    color: var(--primary);
+}
+
+.story-text p {
+    font-size: 1.1rem;
+    color: var(--text-dim);
 }
 
 /* ===============================
-   WEDDING
+   GALLERY (Premium Masonry)
 ================================= */
-
-.wedding h2 {
-    margin-bottom: 25px;
-}
-
-#petals {
-    position: relative;
-    height: 200px;
-    margin-top: 40px;
-}
-
-/* ===============================
-   GALLERY
-================================= */
-
-.gallery-title {
-    margin-bottom: 40px;
-}
 
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
 }
 
 .gallery-grid img {
     width: 100%;
-    border-radius: 15px;
-    transition: transform 0.4s ease;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid var(--glass-border);
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .gallery-grid img:hover {
-    transform: scale(1.05);
+    transform: scale(0.98);
+    border-color: var(--primary);
+    box-shadow: 0 0 40px rgba(255, 0, 51, 0.2);
 }
 
 /* ===============================
-   BLESSING
+   BLESSING FORM (Glassmorphism)
 ================================= */
 
 .blessing-form {
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
+    background: var(--glass);
+    padding: 60px;
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(20px);
+    max-width: 600px;
+    margin: 40px auto;
 }
 
 #username {
     width: 100%;
-    max-width: 400px;
-    padding: 14px;
-    font-size: 16px;
-    border-radius: 8px;
-    border: none;
+    padding: 15px 20px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--glass-border);
+    border-radius: 4px;
+    color: white;
+    font-family: inherit;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+#username:focus {
     outline: none;
+    border-color: var(--primary);
+    background: rgba(255,255,255,0.07);
 }
 
 .blessing-output {
-    margin-top: 25px;
-    font-size: 18px;
-    color: gold;
+    margin-top: 30px;
+    font-family: 'Cinzel', serif;
+    font-size: 1.3rem;
+    color: var(--secondary);
+    min-height: 2em;
 }
 
 /* ===============================
-   PETAL ANIMATION
+   ANIMATIONS & RESPONSIVE
 ================================= */
 
-#petals span {
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    background: pink;
-    border-radius: 50%;
-    animation: fall linear infinite;
+@keyframes fall-sway {
+    0% { transform: translateY(-50px) rotate(0deg); opacity: 0; }
+    20% { opacity: 0.8; }
+    100% { transform: translateY(400px) rotate(360deg); opacity: 0; }
 }
 
-@keyframes fall {
-    0% {
-        transform: translateY(-20px);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(200px);
-        opacity: 0;
-    }
+@media (max-width: 992px) {
+    .story-grid { gap: 40px; grid-template-columns: 1fr; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
 }
-
-/* ===============================
-   RESPONSIVE
-================================= */
 
 @media (max-width: 768px) {
-
-    .story-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .hero h1 {
-        font-size: 2rem;
-    }
-
-    .section {
-        padding: 70px 0;
-    }
+    .hero h1 { font-size: 2.8rem; }
+    .gallery-grid { grid-template-columns: 1fr; }
+    .section { padding: 80px 0; }
+    .blessing-form { padding: 30px; }
 }
+

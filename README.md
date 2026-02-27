@@ -1,37 +1,49 @@
-# Shivratri Project
-
-**Description:**  
-This is an immersive storytelling experience for Shivratri, built with HTML, CSS, and JavaScript. It showcases interactive elements, animations, and multimedia assets for a festive experience.
+# 🔱 Shivratri: The Divine Union
+**An Immersive Multimedia Experience | Cyber-Mystic Design**
 
 ---
 
-## Technologies Used
-- HTML
-- CSS
-- JavaScript
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=333333&height=250&section=header&text=Divine%20Storytelling&fontSize=55&fontAlign=50&fontColor=ffffff&desc=An%20Immersive%20Experience&descAlign=50&descSize=22&descAlignY=65&animation=fadeIn&stroke=000000" width="100%"/>
+</div>
 
 ---
 
-## Project Structure
-- `index.html` → Main page  
-- `style.css` → Styling and layout  
-- `script.js` → Interactive functionality  
-- `assets/` → Images, audio, and other resources (including screenshots)
+### 🚀 **Overview**
+"The Sacred Union of Shiva & Parvati" is a visually stunning, immersive web experience built to showcase the power of modern frontend development combined with emotional storytelling. This project is a blend of **Spirituality** and **Modern Technology**.
+
+### ✨ **Key Features**
+- 🌌 **Cinematic Experience:** Immersive galaxy backgrounds and interactive storytelling.
+- 🎆 **Dynamic Animations:** Real-time CSS keyframe animations and Canvas-based particle systems.
+- 🔊 **Interactive Audio:** Integrated mantra audio with user-controlled sound toggles.
+- 💎 **Glassmorphism UI:** Premium design with blurring, glows, and a "Cyber-Mystic" aesthetic.
+- 🛡️ **Personalized Blessing System:** Interactive JS logic providing unique user experiences.
 
 ---
 
-## Preview
-![Shivratri Project Screenshot](assets/screenshot1.png)
-![Shivratri Project Screenshot](assets/screenshot2.png)
+### 🛠️ **Tech Arsenal**
+| **Domain** | **Technology** |
+| :--- | :--- |
+| **Frontend** | HTML5, CSS3 (Keyframes, Glassmorphism, Responsive Grid) |
+| **Logic** | Vanilla JavaScript (DOM Manipulation, Intersection Observer API) |
+| **Visuals** | Canvas API (Particle System), Google Fonts (Cinzel, Lato) |
+| **Design** | Deep Charcoal & Luminous Gold (Cyber-Mystic Theme) |
+
 ---
 
-## Live Preview
-- **GitHub Pages:** [View Here](https://rajatsec.github.io/immersive-storytelling-experience/)  
-- **Netlify:** [View Here](https://shivratri-storytelling.netlify.app)  <!-- Replace with your actual Netlify URL -->
+### 📂 **How to Experience**
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/rajatsec/Shivratri-Project.git
+    ```
+2.  **Open the journey:**
+    Simply open `index.html` in any modern browser.
+3.  **Experience:**
+    Turn on the sound and click **"Begin Journey"**.
 
 ---
 
-## How to Run Locally
-1. Clone the repository:  
-```bash
-git clone https://github.com/rajatsec/immersive-storytelling-experience.git# immersive-storytelling-experience
+<div align="center">
+  <p>🛡️ Built with Passion by <strong>Rajat</strong> (@secure_with_rajat)</p>
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=333333&height=100&section=footer&text=&animation=fadeIn&stroke=000000" width="100%"/>
+</div>
